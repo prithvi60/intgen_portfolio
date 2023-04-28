@@ -6,16 +6,12 @@ import "./mdx.css";
 import { ReportView } from "./view";
 
 export async function generateStaticParams() {
-  return allProjects
-    .filter((p) => p.published)
-    .map((p) => ({
-      slug: p.slug,
-    }));
+  return [];
 }
 
 export default async function PostPage({ params }) {
   const slug = params?.slug;
-  const project = allProjects.find((project) => project.slug === slug);
+  const project = slug;
 
   if (!project) {
     notFound();
