@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
-function clsx(...args: any) {
+function clsx(...args) {
 	return args.filter(Boolean).join(" ");
 }
 const components = {
@@ -99,7 +99,7 @@ const components = {
 		className,
 		alt,
 		...props
-	}: React.ImgHTMLAttributes<HTMLImageElement>) => (
+	}) => (
 		// eslint-disable-next-line @next/next/no-img-element
 		<img
 			className={clsx("rounded-md border border-zinc-200", className)}
@@ -110,12 +110,12 @@ const components = {
 	hr: ({ ...props }) => (
 		<hr className="my-4 border-zinc-200 md:my-8" {...props} />
 	),
-	table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
+	table: ({ className, ...props }) => (
 		<div className="w-full my-6 overflow-y-auto">
 			<table className={clsx("w-full", className)} {...props} />
 		</div>
 	),
-	tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
+	tr: ({ className, ...props }) => (
 		<tr
 			className={clsx(
 				"m-0 border-t border-zinc-300 p-0 even:bg-zinc-100",
@@ -163,11 +163,9 @@ const components = {
 	Image,
 };
 
-interface MdxProps {
-	code: string;
-}
 
-export function Mdx({ code }: MdxProps) {
+
+export function Mdx({ code }) {
 	const Component = useMDXComponent(code);
 
 	return (

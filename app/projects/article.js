@@ -1,13 +1,10 @@
-import type { Project } from "@/.contentlayer/generated";
+// import type { Project } from "@/.contentlayer/generated";
 import Link from "next/link";
 import { Eye, View } from "lucide-react";
 
-type Props = {
-	project: Project;
-	views: number;
-};
 
-export const Article: React.FC<Props> = ({ project, views }) => {
+
+export const Article = ({ project, views }) => {
 	return (
 		<Link href={`/projects/${project.slug}`}>
 			<article className="p-4 md:p-8">
